@@ -40,4 +40,7 @@ Design Patterns in Ruby
 
 
 		config.ru - tells the web server how to boot your app (load/define app run). ru = rack up  but just ruby code. name is convention (just like index.html - config.ru is looked for by web server)
+
+		Middleware. Like an app - can only have one app running at one time but can have multiple middlewares running on top of one another (kind of like before and after filers - add behaviour on top of app, either before or after). Reusable functionality that you can put on top of any application. Can easily comment out the "use <Middleware>" call to stop that functionality without affecting the app. 
+		Can chain middleware, e.g. run Logger.new(Caching.new(App.new)), calls the call method from Logger then Caching then App - each call references the next
 		
