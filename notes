@@ -21,7 +21,7 @@ lambdas like procs - but counts number of arguments that ae passed through
 difference in return behaviour
 
 
-instance eval - can run code in the block that's passed through to it in the context of the class that it's in
+instance_eval - can run code in the block that's passed through to it in the context of the class that it's in
 
 
 MVC = ARCHITECTURAL design pattern (diff to design pattern)
@@ -32,4 +32,12 @@ Design Patterns (Gang of Four book) Elements of
 Design Patterns in Ruby
 
 
-Active Record - actually design pattern name that Rails ActiveRecord is built with
+1. 	Active Record - actually design pattern name that Rails ActiveRecord is built with
+2. 	Front Controller
+
+		RACK - at it's simplest is a specification for how the web server communicates with your application (/framework). If a webserver is rack compliant - it can host rails
+		A rack application must respond to 'call' method - takes environment hash and outputs an array with STATUS, HEADER and BODY - browser converts this into a HTTP response
+
+
+		config.ru - tells the web server how to boot your app (load/define app run). ru = rack up  but just ruby code. name is convention (just like index.html - config.ru is looked for by web server)
+		
