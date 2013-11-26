@@ -1,0 +1,35 @@
+Modules
+
+include - all those methods will be added to all instances
+extend - class level methods
+
+modules used for namespacing
+
+class Account < ActiveRecord::Base
+	has_many :users, default: true
+end
+
+same as
+class Account < ActiveRecord::Base
+	Account.has_many(:users, {defult: true})
+end
+
+
+block not object - store blocks wwithin procs
+
+lambdas like procs - but counts number of arguments that ae passed through
+difference in return behaviour
+
+
+instance eval - can run code in the block that's passed through to it in the context of the class that it's in
+
+
+MVC = ARCHITECTURAL design pattern (diff to design pattern)
+
+DESIGN PATTERNS
+Patterns of Enterprise Application Architecture (book)
+Design Patterns (Gang of Four book) Elements of 
+Design Patterns in Ruby
+
+
+Active Record - actually design pattern name that Rails ActiveRecord is built with
