@@ -15,9 +15,9 @@ class Account < ActiveRecord::Base
 end
 
 
-block not object - store blocks wwithin procs
+block not an object - store blocks within procs
 
-lambdas like procs - but counts number of arguments that ae passed through
+lambdas like procs - but counts number of arguments that we passed through
 difference in return behaviour
 
 
@@ -43,4 +43,14 @@ Design Patterns in Ruby
 
 		Middleware. Like an app - can only have one app running at one time but can have multiple middlewares running on top of one another (kind of like before and after filers - add behaviour on top of app, either before or after). Reusable functionality that you can put on top of any application. Can easily comment out the "use <Middleware>" call to stop that functionality without affecting the app. 
 		Can chain middleware, e.g. run Logger.new(Caching.new(App.new)), calls the call method from Logger then Caching then App - each call references the next
+		Flash support, Cookie support, Caching support implemented in rails using Middleware
+
+		Rack - there is a rack gem that comes with utility classes to help create the requests and responses as per the rack specifiction. Remember, rack is really just the specification. eg can use Rack::Request to access env variale in a nicer way....request.path_name
 		
+	ignoring a value - use '_
+	' e.g. _, controller, action = path.split("/") 
+
+
+	Ruby  - any variable that starts with a capital letter is a constant, eg String, CONSTANT, i.e. warning when you change its value
+	Classes are considered constant
+	Object.const_get HomeController
