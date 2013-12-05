@@ -130,3 +130,31 @@ activesupport/core_ext--These extend core classes of ruby. extending Array funct
 
 
 QUESTION: When active_record/concern is required at the top of the filters file, how does this application know where to find active support? Is it aware of the gems through ruby?
+
+Modules - good if you want to split some behaviour out of your model (e.g. user authentication and token support)
+
+
+active_support/concern - to include class methods. modules are designed as instance methods. So only if need to run something at the class level
+
+ACTIVE RECORD
+------------------------
+model activity that requires sql or db access
+
+1. persistance - able to save update destroy records
+
+2. Query API or Active Relation (object Relation)
+
+3. association - has_many, belongs_to etc
+
+4. validation
+
+
+exec_explain on sql - what is this??
+
+ACTIVE MODEL
+---------------------
+Active record looks after any code that connects with teh DB, all the rest is in Active model. E.g. can carry out validation on a model object but doesnt' require DB access - use Active Model validation. Supports Active Record
+
+
+
+
