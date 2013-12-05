@@ -67,3 +67,15 @@ Can't call a super from a module (inheritance appplies to classes). To use a sup
 
 see Filters.rb for implementation of class level methods within a module - used a lot in Rails source code
 
+
+4. Template View (Design Pattern)
+
+erb is an implementation of Template View design pattern - standard library these days and ships with ruby, not locaed by default so need to require "erb" (alternatives haml etc) - (no need to require core libraries eg String...)
+
+binding??? eval??
+
+erb templates are compiled to ruby code, then eval - control by passing a specific binding
+only use of binding is for passing it to eval
+
+none of this binding and eval stuff makes sense to me!
+
