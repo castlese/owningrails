@@ -54,3 +54,16 @@ Design Patterns in Ruby
 	Ruby  - any variable that starts with a capital letter is a constant, eg String, CONSTANT, i.e. warning when you change its value
 	Classes are considered constant
 	Object.const_get HomeController
+
+3. Interceptin Filter (Design Pattern)
+
+Used often with Front Controller - share functionality across alll controllers => before_, after_ and around_ filters (rails 4 changes to before_action instead of before_action). Basically all callbacks in controllers and models are handled using Intercepting Filter. 
+
+Rack Middlewares are a sort of implementation of Intercepting Filter too. 
+
+implemented in a module and included in Base class - otherwise, Base would end up being a sprawling mess!
+
+Can't call a super from a module (inheritance appplies to classes). To use a super within a modele they need to be set up in a specific way - see super_module.rb
+
+see Filters.rb for implementation of class level methods within a module - used a lot in Rails source code
+
