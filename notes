@@ -31,8 +31,10 @@ Patterns of Enterprise Application Architecture (book)
 Design Patterns (Gang of Four book) Elements of 
 Design Patterns in Ruby
 
+-----------------------------------------
 
 1. 	Active Record - actually design pattern name that Rails ActiveRecord is built with
+-----------------------------------------
 2. 	Front Controller
 
 		RACK - at it's simplest is a specification for how the web server communicates with your application (/framework). If a webserver is rack compliant - it can host rails
@@ -55,6 +57,7 @@ Design Patterns in Ruby
 	Classes are considered constant
 	Object.const_get HomeController
 
+-------------------------------
 3. Interceptin Filter (Design Pattern)
 
 Used often with Front Controller - share functionality across alll controllers => before_, after_ and around_ filters (rails 4 changes to before_action instead of before_action). Basically all callbacks in controllers and models are handled using Intercepting Filter. 
@@ -67,7 +70,7 @@ Can't call a super from a module (inheritance appplies to classes). To use a sup
 
 see Filters.rb for implementation of class level methods within a module - used a lot in Rails source code
 
-
+---------------------------------
 4. Template View (Design Pattern)
 
 erb is an implementation of Template View design pattern - standard library these days and ships with ruby, not locaed by default so need to require "erb" (alternatives haml etc) - (no need to require core libraries eg String...)
@@ -78,4 +81,52 @@ erb templates are compiled to ruby code, then eval - control by passing a specif
 only use of binding is for passing it to eval
 
 none of this binding and eval stuff makes sense to me!
+Some difficulty understanding around filters. 
 
+/day one
+------------------------------------------------------------------
+day two
+
+USING THE SOURCE
+
+Some Commands
+gem edit <gemname> (inside your application, use bundle open <gemname> - opens the version that you're using for this project. references the GemFile)
+gem dep <gemname and version> - lists dependencies
+
+Most code is going to be in lib directory of a gem. Everything in the lib directory is loaded in the global load path of ruby automatically - need to be careful what you put in here. Naming convention - have a folder in lib director of gem with same name as gem and all code is in here. 
+
+Sometimes see a rails folder in the lib directory - this means that the gem is extending part of rails functionality
+
+Active Record, ActionPack ActionMailer, Railties, Rails are gems
+
+ActionController, ActionView ActionDispatch - namespaces with the ActionPack gem
+
+ActionView - includes helpers. view logic, should never contain business logic. DONT DO IT!
+
+ActionDispatch - making compliant rack application. Handling middelwares
+
+
+
+extend  vs include
+extend - use class level methods
+
+
+
+
+Active record, Controller etc all have a base class
+
+Active Support is a bit different - doesn't have a base class. Utility modules. Can include these in your own class
+
+See activesupport/concern.rb - see similar pattern for including class level methods in modules as we did yesterday in filters
+
+activesupport/callbacks == fiters.rb from yesterday
+
+active/configurable => Rails.config
+
+
+Core Extensions----
+activesupport/core_ext--These extend core classes of ruby. extending Array functionality for example. Can see access to more methods in rails. Lots of extensions to hash objects too...etc etc
+
+
+
+QUESTION: When active_record/concern is required at the top of the filters file, how does this application know where to find active support? Is it aware of the gems through ruby?
